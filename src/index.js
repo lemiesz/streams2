@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import StreamGrid from './components/StreamGrid';
+import UserProfile from './components/UserProfile';
+import StreamPage from './components/StreamPage';
 import firebase from 'firebase';
 import { Router, Route, Link, Redirect, browserHistory } from 'react-router';
 
@@ -19,7 +20,8 @@ ReactDOM.render(
   <Router history={browserHistory}>
     <Redirect from="/" to="/streams"/>
     <Route path="/" component={App}>
-        <Route path="/streams" component={StreamGrid} />
+        <Route path="/streams" component={StreamPage} />
+        <Route path="/users" component={UserProfile} />
     </Route>
   </Router>,
   document.getElementById('root')

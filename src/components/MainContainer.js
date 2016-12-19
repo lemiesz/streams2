@@ -1,6 +1,8 @@
 import React from 'react';
 import StreamGrid from './StreamGrid.js';
 import CreateButton from './CreateButton';
+import NavBar from "./NavBar";
+import "../css/mainContainer.css";
 
 class MainContainer extends React.Component {
     constructor(props) {
@@ -9,8 +11,8 @@ class MainContainer extends React.Component {
 
     render() {
         return (
-            <div className={"mainContainer"}>
-                <CreateButton />
+            <div className="mainContainer">
+                <NavBar/>
                 {this.props.children}
             </div>  
         );

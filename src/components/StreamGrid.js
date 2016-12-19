@@ -111,26 +111,3 @@ class StreamGrid extends React.Component {
 
 
 export default StreamGrid;
-
-  // <GridList
-        //   cellHeight={200}
-        //   cols={4}
-        //   padding={15}
-        //   style={styles.gridList}
-        //   >
-        //   {this.state.tilesData.map((tile) => (
-        //     <GridTile
-        //       style={styles.gridTile}
-        //       key={tile.title}
-        //       title={tile.title}
-        //       subtitle={<span>by <b>{tile.author}</b></span>}
-        //       >
-        //       <div
-        //         className="fb-video"
-        //         data-href="https://www.facebook.com/lemiesz/videos/10152899314242153/"
-        //         data-width="200"
-        //         data-allowfullscreen="true"></div>
-
-        //     </GridTile>
-        //   ))}
-        // </GridList>
