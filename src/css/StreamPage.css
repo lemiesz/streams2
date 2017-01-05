@@ -2,23 +2,20 @@
     /*background-color: red;*/
     display: flex;
     flex-direction: column;
-    flex: 1;
-    align-self: stretch;
+    flex: 1 0 auto;
 }
 
 .StreamPage-top-container {
     /*background-color: lightblue;*/
-    flex: 6 1 auto;
+    flex: 4 1 auto;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin: 15px;
 }
 
 .StreamPage-top-arrowcontainer-right {
     /*background-color: gray;*/
     flex: 1 1 auto;
-    margin: 5px;
     display: flex;
     align-self: center;
     justify-content: flex-end
@@ -27,7 +24,6 @@
 .StreamPage-top-arrowcontainer-left {
     /*background-color: gray;*/
     flex: 1 1 auto;
-    margin: 5px;
     display: flex;
     align-self: center;
     justify-content: flex-start;
@@ -36,28 +32,22 @@
 .StreamPage-top-streamcontainer {
     /*background-color: lightyellow;*/
     flex: 2 1 auto;
-    margin: 5px;
+    margin-top: 15px;
 }
 
 .StreamPage-bottom-container {
-    /*background: lightgreen;*/
+    /*background-color: lightgreen;*/
     display: flex;
     flex-direction: row;
-    flex: 1 1 0;
-    justify-content: space-between;
-    margin: 15px;
+    flex: 1 1 auto;
 }
 
 .StreamPage-bottom-sides {
     /*background-color: gray;*/
     flex: 1 1 auto;
-    margin: 5px;
-    justify-content: center;
 }
 
 .StreamPage-bottom-middle {
     /*background-color: lightyellow;*/
-    flex: 3 1 auto;
-    margin: 5px;
-    justify-content: space-around;
+    flex: 1 1 auto;
 }

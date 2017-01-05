@@ -29,7 +29,7 @@ class AddStreamDialog extends React.Component {
         })
     }
 
-    handleRequestClose() {
+    handleRequestClose = () => {
         this.setState({
             open: false,           
             dialogValue1: "",
@@ -67,14 +67,23 @@ class AddStreamDialog extends React.Component {
         event.preventDefault();
 
         var _this = this;
-        firebase.database().ref('streams/' + this.state.dialogValue2).set({
-            username: "Robert",
-            title: this.state.dialogValue2,
-            author: this.state.dialogValue3,
-            url: this.state.dialogValue1
-        });
+        firebase.database().ref('streams/')
+                         .once("value")
+                         .then((snapshot) => {
+                            this.createDatabaseEntry("Robert", this.state.dialogValue2, this.state.dialogValue3, this.state.dialogValue1, snapshot.numChildren());
+                         })
+
         this.setState({
             open: false
+        });
+    }
+
+    createDatabaseEntry = (username, title, author, url, identifier) => {
+        firebase.database().ref('streams/' + identifier).set({
+            username: username,
+            title: title,
+            author: author,
+            url: url
         });
     }
 

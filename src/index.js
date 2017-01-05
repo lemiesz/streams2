@@ -4,7 +4,7 @@ import App from './App';
 import UserProfile from './components/UserProfile';
 import StreamPage from './components/StreamPage';
 import firebase from 'firebase';
-import { Router, Route, Link, Redirect, browserHistory } from 'react-router';
+import { Router, Route, Redirect, browserHistory } from 'react-router';
 
 import './index.css';
 
@@ -18,9 +18,9 @@ firebase.initializeApp(config);
 
 ReactDOM.render(
   <Router history={browserHistory}>
-    <Redirect from="/" to="/streams"/>
+    <Redirect from="/" to="/streams/6"/>
     <Route path="/" component={App}>
-        <Route path="/streams" component={StreamPage} />
+        <Route path="/streams/:streamId" component={StreamPage} />
         <Route path="/users" component={UserProfile} />
     </Route>
   </Router>,

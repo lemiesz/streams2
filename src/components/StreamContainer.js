@@ -1,6 +1,9 @@
 import React from 'react';
+import _ from 'underscore';
 import Paper from 'material-ui/Paper';
 import firebase from 'firebase';
+
+import "../css/StreamContainer.css";
 
 const paperStyle = {
     width: "100%",
@@ -12,44 +15,63 @@ class StreamContainer extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            tilesData: []
+            stream: null
         }
     }
-
-    componentDidMount = () => {
-        var streamsRef = firebase.database().ref('/streams/');
+  
+    queryFirebaseForStream = (streamId) => {
+        var streamsRef = firebase.database().ref('/streams/' + streamId);
         streamsRef.on('value', (snapshot) => {
-        var tilesData = [];
+            this.setState({stream: snapshot.val()});
+        });    
+    }
 
-        snapshot.forEach((item) => {
-            tilesData.push(item.val());
-        });
-        if (!tilesData) {
-            tilesData = [];
+    componentWillMount() {
+        this.queryFirebaseForStream(this.props.streamId);
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        if(!_.isEqual(this.props, nextProps)) {
+            this.queryFirebaseForStream(nextProps.streamId);
         }
-        console.log(tilesData);
-        this.setState({
-            tilesData: tilesData
-        });
-        })
+        window.FB.XFBML.parse();
+    }
+
+    componentDidUpdate() {
+        window.FB.XFBML.parse();
     }
 
     render() {
         var innerRender;
-        if(this.state.tilesData.length === 0 ) {
-            var innerRender = "Nothing to display";
+        if(this.state.stream === null ) {
+            innerRender = "Nothing to display";
+            console.log(this.props)
         } 
-        console.log(this.state.tilesData);
+        else {
+          var stream = _.first(this.state.tilesData, 1);
+          innerRender =   
+          <div
+              className="fb-video"
+              data-href={this.state.stream.url}
+              data-width="500"
+              data-allowfullscreen="true"
+              data-autoplay="false">
+          </div>
+        }
 
         return (
-            <Paper style={paperStyle} zDepth={2}>
-                <div>
-                    {innerRender};
+            <Paper style={paperStyle} zDepth={1}>
+                <div className="StreamContainer-render">
+                    {innerRender}
                 </div>
             </Paper>  
         );
     }
 
 } 
+
+StreamContainer.defaultProps = {
+    streamId: "false"
+}
 
 export default StreamContainer;
