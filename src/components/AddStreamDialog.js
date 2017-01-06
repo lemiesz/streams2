@@ -36,27 +36,22 @@ class AddStreamDialog extends React.Component {
             dialogValue2: "",
             dialogValue3: ""
         });
-        this.setProps({
-            open: false
-        });
+        this.props.openCallback();
     }
 
     handleDialogTextChange1(event) {
-        console.log("Changing to " + event.target.value)
         this.setState({
             dialogValue1: event.target.value
         })
     }
 
     handleDialogTextChange2(event) {
-        console.log("Changing to " + event.target.value)
         this.setState({
             dialogValue2: event.target.value
         })
     }
 
     handleDialogTextChange3(event) {
-        console.log("Changing to " + event.target.value)
         this.setState({
             dialogValue3: event.target.value
         })
@@ -66,7 +61,6 @@ class AddStreamDialog extends React.Component {
         // This prevents ghost click.
         event.preventDefault();
 
-        var _this = this;
         firebase.database().ref('streams/')
                          .once("value")
                          .then((snapshot) => {
@@ -90,7 +84,7 @@ class AddStreamDialog extends React.Component {
     render() {
         var actions = <RaisedButton onTouchTap={this.onSubmitDialog} primary={true} label="Submit Stream" />;
         return (
-            <Dialog
+            <Dialog id="dialog"
                 title="Add Your Stream"
                 actions={actions}
                 modal={false}
@@ -106,6 +100,6 @@ class AddStreamDialog extends React.Component {
     }
 }
 
-AddStreamDialog.propTypes = { open: React.PropTypes.any }
+AddStreamDialog.propTypes = { open: React.PropTypes.any, openCallback: React.PropTypes.func }
 
 export default AddStreamDialog;

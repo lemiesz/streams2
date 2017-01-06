@@ -56,6 +56,12 @@ class CreateButton extends React.Component {
     })
   }
 
+  openCallback = () => {
+    this.setState({
+      openMenuItem1: false
+    })
+  }
+
   render() {
     return (
       <div>
@@ -63,7 +69,7 @@ class CreateButton extends React.Component {
           style={this.props.over}
           primary={true}
           onTouchTap={this.handleTouchTap}
-          label={"Create"} />
+          label={"Create New Stream"} />
         <Popover
           open={this.state.openMenu}
           anchorEl={this.state.anchorEl}
@@ -76,7 +82,7 @@ class CreateButton extends React.Component {
             <MenuItem onTouchTap={this.handleMenuItem2} primaryText="Create New User Account" />
           </Menu>
         </Popover>
-        <AddStreamDialog open={this.state.openMenuItem1} />
+        <AddStreamDialog openCallback={this.openCallback} open={this.state.openMenuItem1} />
         <CreateAccountDialog open={this.state.openMenuItem2} />
       </div>
     )

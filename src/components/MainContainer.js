@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from "./NavBar";
+import MyToolBar from "./MyToolBar";
 import "../css/mainContainer.css";
 
 class MainContainer extends React.Component {
@@ -7,7 +7,7 @@ class MainContainer extends React.Component {
     render() {
         return (
             <div className="mainContainer">
-                <NavBar/>
+                <MyToolBar />
                 {this.props.children}
             </div>  
         );

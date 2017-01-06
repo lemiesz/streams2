@@ -1,0 +1,54 @@
+.UserProfile-maincontainer {
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 auto;
+}
+
+.UserProfile-rightcolumn {
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    flex: 3 0 auto;
+}
+
+.UserProfile-leftcolumn {
+    background-color: lightyellow;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    flex: 1 0 auto;
+}
+
+.UserProfile-leftcolumn-userImage {
+    background-color: limegreen;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    margin: 50px;
+    border-radius: 30%;
+    flex: 1 0 auto;
+}
+
+.UserProfile-leftcolumn-userLinks {
+    background-color: cyan;
+    flex: 3 0 auto;
+    margin: 50px;
+    margin-bottom: 100px;
+
+}
+
+.UserProfile-rightcolumn-name {
+    background-color: blue;
+    display: flex;
+    flex: 1 0 auto;
+    margin: 50px;
+}
+
+.UserProfile-rightcolumn-textbox {
+    background-color: grey;
+    display: flex;
+    flex: 4 0 auto;
+    margin: 50px;
+}

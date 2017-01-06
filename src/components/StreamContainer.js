@@ -45,7 +45,6 @@ class StreamContainer extends React.Component {
         var innerRender;
         if(this.state.stream === null ) {
             innerRender = "Nothing to display";
-            console.log(this.props)
         } 
         else {
           var stream = _.first(this.state.tilesData, 1);

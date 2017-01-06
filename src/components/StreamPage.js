@@ -5,7 +5,7 @@ import ArrowLeft from "material-ui/svg-icons/hardware/keyboard-arrow-left";
 import ArrowRight from "material-ui/svg-icons/hardware/keyboard-arrow-right";
 import CreateButton from "./CreateButton";
 
-import {withRouter, Link} from "react-router";
+import {withRouter, Link, browserHistory} from "react-router";
 
 import "../css/StreamPage.css";
 
@@ -21,7 +21,13 @@ class StreamPage extends React.Component {
     }
 
     onClickRight = () => {
-        return (parseInt(this.props.params.streamId) + 1).toString();
+        var route = "/streams/" + (parseInt(this.props.params.streamId) + 1).toString();
+        browserHistory.push(route);
+    }
+
+    onClickLeft = () => {
+        var route = "/streams/" + (parseInt(this.props.params.streamId) - 1).toString();
+        browserHistory.push(route);
     }
 
     render() {
@@ -32,17 +38,15 @@ class StreamPage extends React.Component {
         return (
             <div className="StreamPage-full-container">
                 <div className="StreamPage-top-container">
-                    <div className="StreamPage-top-arrowcontainer-left">
+                    <div onClick={this.onClickLeft} className="StreamPage-top-arrowcontainer-left">
                         <ArrowLeft style={arrowStyle} />
                     </div>
                     <div className="StreamPage-top-streamcontainer">
                         <StreamContainer streamId={this.props.params.streamId} />
                     </div>
-                    <Link to={this.onClickRight()}>
-                        <div className="StreamPage-top-arrowcontainer-right">
-                            <ArrowRight style={arrowStyle}/>
-                        </div>
-                    </Link>
+                    <div onClick={this.onClickRight} className="StreamPage-top-arrowcontainer-right">
+                        <ArrowRight style={arrowStyle}/>
+                     </div>
                 </div>
                 <div className="StreamPage-bottom-container">
                     <div className="StreamPage-bottom-sides">
@@ -54,7 +58,6 @@ class StreamPage extends React.Component {
                         <ReactionActions/>
                     </div>
                     <div className="StreamPage-bottom-sides">
-                        <CreateButton/>
                     </div>
                 </div>
             </div>

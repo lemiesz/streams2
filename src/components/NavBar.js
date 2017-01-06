@@ -11,7 +11,7 @@ class NavBar extends React.Component {
     render() {
         return(
             <Tabs>
-                <Tab data-route="streams" onActive={this.handleActive} label="Streams" />
+                <Tab data-route="/streams/6" onActive={this.handleActive} label="Streams" />
                 <Tab data-route="/users" onActive={this.handleActive} label="User Profiles" />
                 <Tab data-route="/createStream" onActive={this.handleActive} label="Create Stream" />
                 <Tab data-route="/randomStream" onActive={this.handleActive} label="Random Stream" />
