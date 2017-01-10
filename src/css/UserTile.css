@@ -1,0 +1,46 @@
+.UserTile-tile {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    border: 2px solid gray;
+    pointer-events: all;
+    margin: 5px;
+}
+
+.UserTile-tile:hover {
+    background: yellow;
+}
+
+.UserTile-image {
+    display: flex;
+    align-self: center;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 60%;
+    border: 2px solid gray;
+    margin-right: 15px;
+}
+
+
+.UserTile-image img {
+    align-self: center;
+}
+
+.UserTile-info {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.UserTile-info-likes {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.UserTile-info-likes-text {
+    align-self: center;
+}

@@ -1,11 +1,18 @@
 import React from 'react';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+import FlatButton from "material-ui/FlatButton";
+import AutoComplete from 'material-ui/AutoComplete';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import CreateButton from './CreateButton';
 import {withRouter, browserHistory } from 'react-router';
 
-class MyToolBar extends React.Component {
+import "../css/NavBarToo.css";
+
+const SEARCH_TEXT = "What Would You Like To Listen To?";
+const VIEW_DJS = "View All DJs";
+
+class NavBarToo extends React.Component {
    
     constructor(props) {
         super(props);
@@ -20,18 +27,25 @@ class MyToolBar extends React.Component {
                 browserHistory.push("/streams/6");
                 break;
             case 2:
-                browserHistory.push("/users");
+                browserHistory.push("/user");
                 break;
         }
         this.setState({value});
-    }
+    };
+
+    clickViewAll = () => {
+        browserHistory.push("/users");
+    };
 
     render() {
         return (
             <Toolbar>
                 <ToolbarGroup firstChild={true}>
+                    <ToolbarTitle className="NavBarToo-title" text="Seattle Streams" />
                 </ToolbarGroup>
+                <AutoComplete hintText={SEARCH_TEXT} fullWidth={false} dataSource={[]} />
                 <ToolbarGroup>
+                    <FlatButton onClick={this.clickViewAll} label={VIEW_DJS} />
                     <CreateButton />
                     <ToolbarSeparator />
                     <DropDownMenu value={this.state.value} onChange={this.handleChange}>
@@ -45,4 +59,4 @@ class MyToolBar extends React.Component {
 
 }
 
-export default withRouter(MyToolBar)
+export default withRouter(NavBarToo)

@@ -1,5 +1,5 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
@@ -65,7 +65,7 @@ class CreateButton extends React.Component {
   render() {
     return (
       <div>
-        <RaisedButton
+        <FlatButton
           style={this.props.over}
           primary={true}
           onTouchTap={this.handleTouchTap}

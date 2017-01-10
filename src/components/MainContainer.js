@@ -1,5 +1,5 @@
 import React from 'react';
-import MyToolBar from "./MyToolBar";
+import MyToolBar from "./NavBarToo";
 import "../css/mainContainer.css";
 
 class MainContainer extends React.Component {
