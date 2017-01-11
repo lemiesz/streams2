@@ -3,6 +3,7 @@ import UserTile from "./UserTile";
 import {browserHistory, withRouter} from "react-router";
 
 import "../../css/AllUsers.css";
+import Killinois from "../../../public/killinois.jpg";
 
 class AllUsers extends React.Component {
 
@@ -14,15 +15,22 @@ class AllUsers extends React.Component {
 
     createTestGrid = () => {
         var testGrid = [];
-        for(let i = 0; i<1000; i++) {
-            testGrid.push(<UserTile onClick={this.handleTileClick} />);
+        for(let i = 0; i<100; i++) {
+            testGrid.push(<UserTile key={i} onClick={this.handleTileClick} />);
         }
         return testGrid;
     };
 
     render() {
+        var viewModel = {
+            name: "Killiois",
+            location: "Chicago, IL",
+            likes: "1,000,000",
+            imageUrl: Killinois
+        }
         return (
             <div className="AllUsers-container">
+                <UserTile viewModel={viewModel} onTouchTap={this.handleTileClick} />
                 {this.createTestGrid()}
             </div>
         )

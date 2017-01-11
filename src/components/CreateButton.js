@@ -5,8 +5,6 @@ import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import AddStreamDialog from './AddStreamDialog.js';
 import CreateAccountDialog from './CreateAccountDialog';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
 
 class CreateButton extends React.Component {
 

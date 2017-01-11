@@ -1,11 +1,11 @@
 .UserProfile-maincontainer {
     display: flex;
     flex-direction: row;
-    flex: 1 0 auto;
+    flex: 1 0 90%;
 }
 
 .UserProfile-rightcolumn {
-    background-color: lightblue;
+    background-color: lightcyan;
     display: flex;
     flex-direction: column;
     width: 70%;
@@ -13,42 +13,67 @@
 }
 
 .UserProfile-leftcolumn {
-    background-color: lightyellow;
     display: flex;
+    align-items: center;
     flex-direction: column;
     width: 30%;
     flex: 1 0 auto;
 }
 
 .UserProfile-leftcolumn-userImage {
-    background-color: limegreen;
+    background-position: center;
+    background-size: contain;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     width: 200px;
     height: 200px;
-    margin: 50px;
     border-radius: 30%;
-    flex: 1 0 auto;
+    margin-top: 50px;
 }
 
 .UserProfile-leftcolumn-userLinks {
-    background-color: cyan;
-    flex: 3 0 auto;
-    margin: 50px;
-    margin-bottom: 100px;
-
+    margin: 50px 50px 100px;
 }
 
-.UserProfile-rightcolumn-name {
-    background-color: blue;
+.UserProfile-leftcolumn-userLinks-primarytext {
+     font-size: 25px;
+ }
+
+.UserProfile-leftcolumn-userLinks-social {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.UserProfile-leftcolumn-userLinks-paper {
+     display: flex;
+     flex-flow: row wrap;
+     justify-content: flex-start;
+     align-self: center;
+     margin-top: 10px;
+ }
+
+.UserProfile-leftcolumn-userLinks-paper div{
+    margin: 10px;
+    align-self: center;
+}
+
+.UserProfile-rightcolumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.UserProfile-rightcolumn-paper {
+    display: flex;
+    overflow: auto;
+    margin: 10px;
+}
+
+.UserProfile-rightcolumn-paper div {
     display: flex;
     flex: 1 0 auto;
-    margin: 50px;
-}
-
-.UserProfile-rightcolumn-textbox {
-    background-color: grey;
-    display: flex;
-    flex: 4 0 auto;
-    margin: 50px;
+    margin: 15px;
 }
