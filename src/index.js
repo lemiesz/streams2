@@ -19,7 +19,7 @@ firebase.initializeApp(config);
 
 ReactDOM.render(
   <Router history={browserHistory}>
-    <Redirect from="/" to="/streams/6"/>
+    <Redirect from="/" to="/users"/>
     <Route path="/" component={App}>
         <Route path="/streams/:streamId" component={StreamPage} />
         <Route path="/user" component={UserProfile} />

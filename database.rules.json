@@ -1,0 +1,11 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": true,
+    "streams": {
+      "$stream": {
+        ".validate": "newData.hasChildren(['url', 'title', 'author']) && newData.child('url').isString()"
+      }
+    }
+  }
+}

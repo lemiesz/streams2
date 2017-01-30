@@ -39,7 +39,7 @@ class NavBarToo extends React.Component {
 
     render() {
         return (
-            <Toolbar>
+            <Toolbar className="NavBarToo">
                 <ToolbarGroup firstChild={true}>
                     <ToolbarTitle className="NavBarToo-title" text="Seattle Streams" />
                 </ToolbarGroup>

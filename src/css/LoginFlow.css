@@ -1,0 +1,20 @@
+.LoginFlow-main {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.LoginFlow-step {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+}
+.LoginFlow-step-step2 {
+    display: flex;
+    flex-direction: row;
+}
+
+.LoginFlow-step-step2-text {
+    display: flex;
+    flex-direction: column;
+}

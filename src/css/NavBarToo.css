@@ -1,4 +1,11 @@
 .NavBarToo-title {
+    display: flex;
+    flex: 0 2 auto;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.NavBarToo {
+    display: flex;
+    overflow: scroll;
 }
