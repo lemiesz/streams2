@@ -31,10 +31,7 @@ class CreateAccountDialog extends React.Component {
         this.setState({
             open: false,
         });
-        this.setProps({
-            open: false
-        });
-    }
+    };
 
     onSubmitDialog = () => {
         // This prevents ghost click.

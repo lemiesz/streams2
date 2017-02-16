@@ -8,24 +8,24 @@ import {
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-
+import firebase from 'firebase';
 
 import "../css/LoginFlow.css";
-
 
 
 class LoginFlow extends React.Component {
     state = {
         stepIndex: 0,
         textMap: {
-            textMap: "",
+            artistName: "",
+            email: "",
             password: "",
             confirmPassword: "",
-            artistName: "",
             soundcloud: "",
             facebook: "",
             bio: ""
-        }
+        },
+        imageFile: {}
     };
 
     handleNext = () => {
@@ -82,7 +82,8 @@ class LoginFlow extends React.Component {
                                            value={this.state.textMap.facebook} hintText="Facebook url"/>
                             </div>
                             <div>
-                                <FlatButton onChange={this.handleImageChoice} labelPosition="before" label="Upload Photo" primary={true}>
+                                <FlatButton onChange={this.handleImageChoice} labelPosition="before"
+                                            label="Upload Photo" primary={true}>
                                     <input type="file" style={inputStyle}/>
                                 </FlatButton>
                             </div>
@@ -141,14 +142,52 @@ class LoginFlow extends React.Component {
                             primary={true}
                             onTouchTap={this.handleNext}
                         />
+                        <RaisedButton label="Complete"
+                                      disabled={stepIndex !== 2}
+                                      primary={true}
+                                      onTouchTap={this.submitLoginForm}
+                        />
                     </div>
                 </div>
             </div>
         )
     }
 
+    submitLoginForm = () => {
+        var fileToSubmit = this.state.imageFile;
+        var storageRef = firebase.storage().ref();
+        console.log(storageRef);
+        var fileRef = storageRef.child("artistImage:" + this.state.textMap.artistName);
+        fileRef.put(fileToSubmit).then(() => {
+            console.log("uploaded an image");
+        }).catch((error) => {
+            console.log(error);
+        });
+
+        firebase.database().ref('users/').once("value").then(
+            (snapshot) => {
+                this.createDatabaseEntry(this.state.textMap.artistName, this.state.textMap.email, this.state.textMap.password, this.state.textMap.soundcloud, this.state.textMap.facebook, snapshot.numChildren());
+            })
+
+    };
+
+    createDatabaseEntry = (artistName, email, password, soundcloud, facebook, identifier) => {
+        firebase.database().ref('users/' + identifier)
+            .set({
+                artistName: artistName,
+                email: email,
+                password: password,
+                soundcloud: soundcloud,
+                facebook: facebook,
+                imageFileName: "artistImage:" + artistName
+            });
+    };
+
     handleImageChoice = (event) => {
-        console.log(event.target.files);
+        var files = event.target.files;
+        var fileToSubmit = _.first(files);
+        console.log(fileToSubmit);
+        this.setState({imageFile: fileToSubmit});
     };
 
     handleInputChange = (type, event) => {

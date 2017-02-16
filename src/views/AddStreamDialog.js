@@ -65,7 +65,7 @@ class AddStreamDialog extends React.Component {
                          .once("value")
                          .then((snapshot) => {
                             this.createDatabaseEntry("Robert", this.state.dialogValue2, this.state.dialogValue3, this.state.dialogValue1, snapshot.numChildren());
-                         })
+                         });
 
         this.setState({
             open: false
