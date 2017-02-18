@@ -1,17 +1,24 @@
 import {Container} from 'flux/utils';
-import StreamsStore from "../data/StreamsStore";
+import React from 'react';
+import StreamsStore from "../data/Streams/StreamsStore";
 import App from "./App";
 
-const getState = () => {
-    return {
-        streams: StreamsStore.getState(),
+class AppContainer extends React.Component {
+
+    static getStores() {
+        return [StreamsStore]
     }
-};
 
-const getStores = () => {
-    return [
-        StreamsStore,
-    ];
-};
+    static calculateState(prevState) {
+        return {
+            streams: StreamsStore.getState()
+        }
+    }
 
-export default Container.createFunctional(App, getStores, getState)''
+    render() {
+        return <App streams={this.state.streams} />
+    }
+
+}
+
+export default Container.create(AppContainer);

@@ -1,4 +1,4 @@
-import StreamsDispatcher from './StreamsDispatcher';
+import StreamsDispatcher from '../StreamsDispatcher';
 import StreamsActionTypes from './StreamsActionsTypes';
 
 const Actions = {

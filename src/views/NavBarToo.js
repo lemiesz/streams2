@@ -13,13 +13,6 @@ const SEARCH_TEXT = "What Would You Like To Listen To?";
 const VIEW_DJS = "View All DJs";
 
 class NavBarToo extends React.Component {
-   
-    constructor(props) {
-        super(props);
-        this.state = {
-        value: 1,
-        };
-    }
 
     handleChange = (event, index, value) => {
         switch(value) {
@@ -30,7 +23,7 @@ class NavBarToo extends React.Component {
                 browserHistory.push("/user");
                 break;
         }
-        this.setState({value});
+        this.props.updateDropDown(value);
     };
 
     clickViewAll = () => {
@@ -38,6 +31,7 @@ class NavBarToo extends React.Component {
     };
 
     render() {
+        var viewModel = this.props.viewModel;
         return (
             <Toolbar className="NavBarToo">
                 <ToolbarGroup firstChild={true}>
@@ -46,9 +40,9 @@ class NavBarToo extends React.Component {
                 <AutoComplete hintText={SEARCH_TEXT} fullWidth={false} dataSource={[]} />
                 <ToolbarGroup>
                     <FlatButton onClick={this.clickViewAll} label={VIEW_DJS} />
-                    <CreateButton />
+                    <CreateButton {...this.props} />
                     <ToolbarSeparator />
-                    <DropDownMenu value={this.state.value} onChange={this.handleChange}>
+                    <DropDownMenu value={viewModel.get("dropDownValue")} onChange={this.handleChange}>
                         <MenuItem data-route="streams/6" value={1} primaryText="Streams" />
                         <MenuItem data-route="users" value={2} primaryText="Users" />
                     </DropDownMenu>

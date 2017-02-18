@@ -1,6 +1,6 @@
 import {ReduceStore} from 'flux/utils';
 import StreamsActionTypes from './StreamsActionsTypes';
-import StreamsDispatcher from './StreamsDispatcher';
+import StreamsDispatcher from '../StreamsDispatcher';
 import Immutable from 'immutable';
 
 class StreamsStore extends ReduceStore {
