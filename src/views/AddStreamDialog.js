@@ -37,7 +37,7 @@ class AddStreamDialog extends React.Component {
             dialogValue3: ""
         });
         this.props.openCallback();
-    }
+    };
 
     handleDialogTextChange1(event) {
         this.setState({
@@ -88,8 +88,8 @@ class AddStreamDialog extends React.Component {
                 title="Add Your Stream"
                 actions={actions}
                 modal={false}
-                open={this.state.open}
-                onRequestClose={(this.handleRequestClose)}
+                open={this.props.addStreamDialogShow}
+                onRequestClose={() => this.props.toggleAddStreamDialog()}
                 >
                 <TextField onChange={this.handleDialogTextChange1} value={this.state.dialogValue1} floatingLabelText="Paste Stream Embed Code" multiLine={true} />
                 <TextField onChange={this.handleDialogTextChange2} value={this.state.dialogValue2} floatingLabelText="StreamTitle" multiLine={true} />

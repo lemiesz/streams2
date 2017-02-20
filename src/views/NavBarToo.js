@@ -1,6 +1,7 @@
 import React from 'react';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import FlatButton from "material-ui/FlatButton";
+import RaisedButton from "material-ui/RaisedButton";
 import AutoComplete from 'material-ui/AutoComplete';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -11,6 +12,7 @@ import "../css/NavBarToo.css";
 
 const SEARCH_TEXT = "What Would You Like To Listen To?";
 const VIEW_DJS = "View All DJs";
+const SIGN_IN = "Sign In";
 
 class NavBarToo extends React.Component {
 
@@ -30,6 +32,10 @@ class NavBarToo extends React.Component {
         browserHistory.push("/users");
     };
 
+    clickSignIn = () => {
+        browserHistory.push("/signin");
+    };
+
     render() {
         var viewModel = this.props.viewModel;
         return (
@@ -46,6 +52,9 @@ class NavBarToo extends React.Component {
                         <MenuItem data-route="streams/6" value={1} primaryText="Streams" />
                         <MenuItem data-route="users" value={2} primaryText="Users" />
                     </DropDownMenu>
+                </ToolbarGroup>
+                <ToolbarGroup>
+                    <RaisedButton onClick={this.clickSignIn} label={SIGN_IN} />
                 </ToolbarGroup>
             </Toolbar>
         );

@@ -15,14 +15,9 @@ class NavBarContainer extends React.Component {
     static calculateState(prev) {
         return {
             viewModel: DropDownStore.getState(),
-            createButtonShow: CreateButtonStore.getState(),
-            addStreamDialogShow: false,
-            createUserDialogShow: false,
+            addStreamDialogShow: CreateButtonStore.getState(),
 
             updateDropDown: NavActions.updateDropDown,
-
-            toggleCreateButton: NavActions.toggleCreateButton,
-            toggleCreateAccount: NavActions.toggleCreateAccount,
             toggleAddStreamDialog: NavActions.toggleAddStreamDialog
         };
     };

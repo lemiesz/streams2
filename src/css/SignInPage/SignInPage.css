@@ -1,0 +1,18 @@
+.SignInPage {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.SignInPage-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.SignInPage-box-text {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+}

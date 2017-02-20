@@ -15,11 +15,7 @@ class CreateButtonStore extends ReduceStore {
 
     reduce(state, action) {
         switch (action.type) {
-            case NavActionTypes.TOGGLE_CREATE_ACCOUNT:
-                return !state;
             case NavActionTypes.TOGGLE_ADD_STREAM:
-                return !state;
-            case NavActionTypes.TOGGLE_CREATE_BUTTON:
                 return !state;
             default:
                 return state;
