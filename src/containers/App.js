@@ -3,7 +3,8 @@ import {Router, Route, Redirect, browserHistory} from 'react-router';
 import StreamPage from "../views/StreamPage";
 import UserProfile from "../views/UserProfile";
 import AllUsers from "../views/Users/AllUsers";
-import SignInPage from "../views/SignIn/SignInPage";
+import SignInPage from "../views/Login/SignInPage";
+import SignUpPage from "../views/Login/SignUpPage";
 import MuiProviderContainer from "./MuiProviderContainer";
 
 class App extends React.Component {
@@ -16,6 +17,7 @@ class App extends React.Component {
                     <Route path="/user" component={UserProfile}/>
                     <Route path="/users" component={AllUsers}/>
                     <Route path="/signin" component={SignInPage}/>
+                    <Route path="/signup" component={SignUpPage}/>
                 </Route>
             </Router>
         );

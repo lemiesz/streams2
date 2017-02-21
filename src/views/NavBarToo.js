@@ -13,6 +13,8 @@ import "../css/NavBarToo.css";
 const SEARCH_TEXT = "What Would You Like To Listen To?";
 const VIEW_DJS = "View All DJs";
 const SIGN_IN = "Sign In";
+const SIGN_UP = "Sign Up";
+
 
 class NavBarToo extends React.Component {
 
@@ -36,6 +38,10 @@ class NavBarToo extends React.Component {
         browserHistory.push("/signin");
     };
 
+    clickSignUp = () => {
+        browserHistory.push("/signUp");
+    };
+
     render() {
         var viewModel = this.props.viewModel;
         return (
@@ -55,6 +61,7 @@ class NavBarToo extends React.Component {
                 </ToolbarGroup>
                 <ToolbarGroup>
                     <RaisedButton onClick={this.clickSignIn} label={SIGN_IN} />
+                    <RaisedButton onClick={this.clickSignUp} label={SIGN_UP} />
                 </ToolbarGroup>
             </Toolbar>
         );

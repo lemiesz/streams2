@@ -1,6 +1,6 @@
 import React from 'react';
 import Dialog from 'material-ui/Dialog';
-import LoginFlow from './LoginFlow';
+import LoginFlow from './Login/LoginFlow';
 import "../css/CreateAccountDialog.css";
 
 class CreateAccountDialog extends React.Component {

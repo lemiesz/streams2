@@ -10,7 +10,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import firebase from 'firebase';
 
-import "../css/LoginFlow.css";
+import "../../css/Login/LoginFlow.css";
 
 
 class LoginFlow extends React.Component {

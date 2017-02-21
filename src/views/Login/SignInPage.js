@@ -3,11 +3,12 @@ import {withRouter, browserHistory} from 'react-router';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import "../../css/SignInPage/SignInPage.css";
+import "../../css/Login/SignInPage.css";
 
 class SignInPage extends React.Component {
 
     render() {
+        console.log(this.props);
         return (
             <div className="SignInPage">
                 <div> Seattle Streams</div>
@@ -17,6 +18,7 @@ class SignInPage extends React.Component {
                         <TextField hintText={"Password"}/>
                     </div>
                     <RaisedButton primary={true} label="Login" />
+                    <RaisedButton secondary={true} label="Signup" />
                 </Paper>
             </div>
         )

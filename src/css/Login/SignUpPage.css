@@ -1,7 +1,7 @@
-.StreamContainer-render {
+.SignUpPage {
+    flex: 1 1 auto;
     display: flex;
-    height:100%;
-
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }

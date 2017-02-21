@@ -16,7 +16,7 @@ class AppContainer extends React.Component {
     }
 
     render() {
-        return <App streams={this.state.streams} />
+        return <App {...this.state}/>
     }
 
 }
