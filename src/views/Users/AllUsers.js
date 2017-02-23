@@ -38,7 +38,7 @@ class AllUsers extends React.Component {
                 var itemValue = item.val();
                 console.log(itemValue);
                 var imageUrl = itemValue.imageUrl || PlaceHolder;
-                users.push({name: itemValue.artistName, location: itemValue.location, likes: itemValue.likes, imageUrl: itemValue.imageUrl});
+                users.push({name: itemValue.artistName, location: itemValue.location, likes: itemValue.likes, imageUrl: imageUrl});
             });
             this.setState({userViewModels: users});
         });
