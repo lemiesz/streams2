@@ -1,5 +1,6 @@
 .UserTile-tile {
     display: flex;
+    flex: 0 0 25%;
     flex-flow: row nowrap;
     justify-content: center;
     align-content: center;

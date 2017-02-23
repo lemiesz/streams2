@@ -158,20 +158,24 @@ class LoginFlow extends React.Component {
         var storageRef = firebase.storage().ref();
         console.log(storageRef);
         var fileRef = storageRef.child("artistImage:" + this.state.textMap.artistName);
-        fileRef.put(fileToSubmit).then(() => {
+        var imageUrl = "";
+        fileRef.put(fileToSubmit).then((item) => {
             console.log("uploaded an image");
+            console.log(item.downloadURL);
+            imageUrl = item.downloadURL;
+            firebase.database().ref('users/').once("value").then(
+                (snapshot) => {
+                    this.createDatabaseEntry(this.state.textMap.artistName, this.state.textMap.email, this.state.textMap.password, this.state.textMap.soundcloud, this.state.textMap.facebook, imageUrl, snapshot.numChildren() + 1);
+                })
         }).catch((error) => {
             console.log(error);
         });
 
-        firebase.database().ref('users/').once("value").then(
-            (snapshot) => {
-                this.createDatabaseEntry(this.state.textMap.artistName, this.state.textMap.email, this.state.textMap.password, this.state.textMap.soundcloud, this.state.textMap.facebook, snapshot.numChildren());
-            })
+
 
     };
 
-    createDatabaseEntry = (artistName, email, password, soundcloud, facebook, identifier) => {
+    createDatabaseEntry = (artistName, email, password, soundcloud, facebook, imageUrl, identifier) => {
         firebase.database().ref('users/' + identifier)
             .set({
                 artistName: artistName,
@@ -179,7 +183,8 @@ class LoginFlow extends React.Component {
                 password: password,
                 soundcloud: soundcloud,
                 facebook: facebook,
-                imageFileName: "artistImage:" + artistName
+                imageFileName: "artistImage:" + artistName,
+                imageUrl: imageUrl
             });
     };
 
