@@ -6,8 +6,22 @@ import AllUsers from "../views/Users/AllUsers";
 import SignInPage from "../views/Login/SignInPage";
 import SignUpPage from "../views/Login/SignUpPage";
 import MuiProviderContainer from "./MuiProviderContainer";
+import firebase from 'firebase';
 
 class App extends React.Component {
+
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            user: null
+        }
+    }
+
+    componentDidMount() {
+        firebase.auth().onAuthStateChanged(this.onAuthChange);
+    }
+
     render() {
         return (
             <Router history={browserHistory}>
@@ -16,13 +30,22 @@ class App extends React.Component {
                     <Route path="/streams/:streamId" component={StreamPage}/>
                     <Route path="/user" component={UserProfile}/>
                     <Route path="/users" component={AllUsers}/>
-                    <Route path="/signin" component={SignInPage}/>
+                    <Route path="/signin" component={SignInPage} onEnter={this.redirectIfLoggedIn}/>
                     <Route path="/signup" component={SignUpPage}/>
                 </Route>
             </Router>
         );
     }
-}
 
+    redirectIfLoggedIn = (nextState, replaceState) => {
+        if(this.state.user) {
+            replaceState({nextPathname: nextState.location.pathname}, "/users");
+        }
+    };
+
+    onAuthChange = (user) => {
+        this.setState({user: user});
+    }
+}
 
 export default App;

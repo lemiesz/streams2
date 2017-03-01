@@ -16,3 +16,8 @@
     flex-direction: column;
     margin: 50px;
 }
+
+.SignInPage-errorText {
+    color: red;
+    align-self: center;
+}
