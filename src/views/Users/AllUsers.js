@@ -18,7 +18,6 @@ class AllUsers extends React.Component {
     }
 
     handleTileClick = () => {
-        console.log("going to page");
         browserHistory.push("/user");
     };
 
@@ -36,7 +35,6 @@ class AllUsers extends React.Component {
             var users = [];
             snapshot.forEach((item) => {
                 var itemValue = item.val();
-                console.log(itemValue);
                 var imageUrl = itemValue.imageUrl || PlaceHolder;
                 users.push({name: itemValue.artistName, location: itemValue.location, likes: itemValue.likes, imageUrl: imageUrl});
             });
@@ -53,7 +51,6 @@ class AllUsers extends React.Component {
             imageUrl: Killinois
         };
 
-        console.log(this.state.userViewModels);
         var views = _.map(this.state.userViewModels, (viewModel, index) => {
             return <UserTile key={index} viewModel={viewModel} onTouchTap={this.handleTileClick} /> ;
         });

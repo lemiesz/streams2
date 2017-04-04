@@ -6,6 +6,7 @@ import AllUsers from "../views/Users/AllUsers";
 import SignInPage from "../views/Login/SignInPage";
 import SignUpPage from "../views/Login/SignUpPage";
 import MuiProviderContainer from "./MuiProviderContainer";
+import UsersActions from "../data/Users/UsersActions";
 import firebase from 'firebase';
 
 class App extends React.Component {
@@ -44,6 +45,8 @@ class App extends React.Component {
     };
 
     onAuthChange = (user) => {
+        console.log(user);
+        UsersActions.userChange(user);
         this.setState({user: user});
     }
 }

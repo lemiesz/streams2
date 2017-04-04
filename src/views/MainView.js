@@ -32,7 +32,6 @@ class MainView extends React.Component {
     }
 
     updateLoginStateChange = (user) => {
-        console.log(user);
         this.setState({user: user});
     }
 }
